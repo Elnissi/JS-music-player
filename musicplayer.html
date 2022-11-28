@@ -1,0 +1,69 @@
+<!-- We will be creating a JS music player with a clean user interface that can be used to
+play music in the browser as well as seek and volume control. HTML has several methods in 
+the HTMLMediaElement interface that can be used to play audio files and control its playback
+without using any other library.
+First, we will create the HTML layout that defines the structure of the music player.-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>Simple Music Player</title>
+<!-- Load FontAwesome icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+<!-- Load the custom CSS style file -->
+    <link rel="stylesheet" type="text/css" href="musicplayer.css">
+    </head>
+    <body>
+        <div class="player">
+
+<!-- Define the section for displaying details -->
+	        <div class="details">
+	            <div class="now-playing">PLAYING x from y</div>
+	            <div class="track-art"></div>
+	            <div class="track-name">Track Name</div>
+	            <div class="track-artist">Track Artist</div>
+	        </div>
+
+<!-- Define the section for displaying track buttons -->
+	        <div class="buttons">
+	            <div class="prev-track" onclick="prevTrack()">
+		        <i class="fa fa-step-backward fa-2x"></i>
+	            </div>
+	            <div class="playpause-track" onclick="playpauseTrack()">
+		        <i class="fa fa-play-circle fa-5x"></i>
+	            </div>
+	            <div class="next-track" onclick="nextTrack()">
+		        <i class="fa fa-step-forward fa-2x"></i>
+	            </div>
+	        </div>
+
+<!-- Define the section for displaying the seek slider-->
+	        <div class="slider_container">
+	            <div class="current-time">00:00</div>
+	                <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+	            <div class="total-duration">00:00</div>
+	        </div>
+
+<!-- Define the section for displaying the volume slider-->
+	        <div class="slider_container">
+	            <i class="fa fa-volume-down"></i>
+	            <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
+	            <i class="fa fa-volume-up"></i>
+	        </div>
+        </div>
+
+<!-- Load the main script for the player -->
+    <script src="musicplayer.js"></script>
+</body>
+</html>
+
+
+<!--Details Portion: This section shows the details of the current track being played. It includes the track number, track 
+album, track name and track artist.
+Buttons Portion: This section shows the buttons that are used to control the 
+playback of the track. It includes the play/pause button, the previous and next 
+track buttons. They would have an onclick() method that calls a specific function
+ defined in the JavaScript file.
+Sliders Portion: This section contains the seek slider and volume slider that can
+ be used to control the playback and volume.-->
